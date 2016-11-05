@@ -1,0 +1,98 @@
+==18319== Memcheck, a memory error detector
+==18319== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==18319== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==18319== Command: ./a.out images/corrupt-testcases/06-bad-comment-len.ee264 student-out-20_-
+==18319== Parent PID: 18318
+==18319== 
+--18319-- 
+--18319-- Valgrind options:
+--18319--    --tool=memcheck
+--18319--    --leak-check=full
+--18319--    --verbose
+--18319--    --log-file=memcheck-20.log
+--18319-- Contents of /proc/version:
+--18319--   Linux version 2.6.32-504.23.4.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-9) (GCC) ) #1 SMP Fri May 29 10:16:43 EDT 2015
+--18319-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--18319-- Page sizes: currently 4096, max supported 4096
+--18319-- Valgrind library directory: /usr/lib64/valgrind
+--18319-- Reading syms from /tmp/.BNlGuZ/a.out
+--18319-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--18319--    object doesn't have a dynamic symbol table
+--18319-- Reading syms from /lib64/ld-2.12.so
+--18319--   Considering /usr/lib/debug/.build-id/5b/eb2450b75e84ff317c65f22af8b8112c25df63.debug ..
+--18319--   .. build-id is valid
+--18319-- Scheduler: using generic scheduler lock implementation.
+--18319-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==18319== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-18319-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==18319== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-18319-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==18319== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-18319-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==18319== 
+==18319== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==18319== don't want to do, unless you know exactly what you're doing,
+==18319== or are doing some strange experiment):
+==18319==   /usr/lib64/valgrind/../../bin/vgdb --pid=18319 ...command...
+==18319== 
+==18319== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==18319==   /path/to/gdb ./a.out
+==18319== and then give GDB the following command
+==18319==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=18319
+==18319== --pid is optional if only one valgrind process is running
+==18319== 
+--18319-- REDIR: 0x3bde8176d0 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--18319-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--18319-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--18319-- REDIR: 0x3bde8174e0 (index) redirected to 0x4a07c30 (index)
+--18319-- REDIR: 0x3bde817560 (strcmp) redirected to 0x4a08570 (strcmp)
+--18319-- Reading syms from /lib64/libc-2.12.so
+--18319--   Considering /usr/lib/debug/.build-id/c7/df056b7c109a41096296cd70702f2eada124b0.debug ..
+--18319--   .. build-id is valid
+--18319-- REDIR: 0x3bdec84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--18319-- REDIR: 0x3bdec86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--18319-- REDIR: 0x3bdec82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--18319-- REDIR: 0x3bdec7f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--18319-- REDIR: 0x3bded28350 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+--18319-- REDIR: 0x3bdec81120 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--18319-- REDIR: 0x3bded33620 (__strlen_sse42) redirected to 0x4a07f90 (strlen)
+--18319-- REDIR: 0x3bdec8aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--18319-- REDIR: 0x3bdec84500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--18319-- REDIR: 0x3bdec7b520 (free) redirected to 0x4a063a9 (free)
+--18319-- REDIR: 0x3bdec7a640 (malloc) redirected to 0x4a069ac (malloc)
+--18319-- REDIR: 0x3bdec89670 (memcpy) redirected to 0x4a08b60 (memcpy)
+==18319== Warning: set address range perms: large range [0x3aeed040, 0xb96d4ebe) (undefined)
+==18319== Conditional jump or move depends on uninitialised value(s)
+==18319==    at 0x400AEB: Image_load (answer04.c:55)
+==18319==    by 0x401ABC: main (<stdin>:61)
+==18319== 
+--18319-- REDIR: 0x3bdec80b70 (strcpy) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--18319-- REDIR: 0x3bded340c0 (???) redirected to 0x4a07fd0 (strcpy)
+==18319== Warning: set address range perms: large range [0x3aeed028, 0xb96d4ed6) (noaccess)
+==18319== 
+==18319== HEAP SUMMARY:
+==18319==     in use at exit: 568 bytes in 1 blocks
+==18319==   total heap usage: 5 allocs, 4 frees, 2,122,219,914 bytes allocated
+==18319== 
+==18319== Searching for pointers to 1 not-freed blocks
+==18319== Checked 68,992 bytes
+==18319== 
+==18319== LEAK SUMMARY:
+==18319==    definitely lost: 0 bytes in 0 blocks
+==18319==    indirectly lost: 0 bytes in 0 blocks
+==18319==      possibly lost: 0 bytes in 0 blocks
+==18319==    still reachable: 568 bytes in 1 blocks
+==18319==         suppressed: 0 bytes in 0 blocks
+==18319== Reachable blocks (those to which a pointer was found) are not shown.
+==18319== To see them, rerun with: --leak-check=full --show-reachable=yes
+==18319== 
+==18319== Use --track-origins=yes to see where uninitialised values come from
+==18319== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 6 from 6)
+==18319== 
+==18319== 1 errors in context 1 of 1:
+==18319== Conditional jump or move depends on uninitialised value(s)
+==18319==    at 0x400AEB: Image_load (answer04.c:55)
+==18319==    by 0x401ABC: main (<stdin>:61)
+==18319== 
+--18319-- 
+--18319-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--18319-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==18319== 
+==18319== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 6 from 6)

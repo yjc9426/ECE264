@@ -1,0 +1,74 @@
+==19514== Memcheck, a memory error detector
+==19514== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==19514== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==19514== Command: ./a.out images/bmps/02-cat-chess.bmp student-out-06_02-cat-chess.ee264
+==19514== Parent PID: 19513
+==19514== 
+--19514-- 
+--19514-- Valgrind options:
+--19514--    --tool=memcheck
+--19514--    --leak-check=full
+--19514--    --verbose
+--19514--    --log-file=memcheck-06.log
+--19514-- Contents of /proc/version:
+--19514--   Linux version 2.6.32-504.23.4.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-9) (GCC) ) #1 SMP Fri May 29 10:16:43 EDT 2015
+--19514-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--19514-- Page sizes: currently 4096, max supported 4096
+--19514-- Valgrind library directory: /usr/lib64/valgrind
+--19514-- Reading syms from /tmp/.iUOEEg/a.out
+--19514-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--19514--    object doesn't have a dynamic symbol table
+--19514-- Reading syms from /lib64/ld-2.12.so
+--19514--   Considering /usr/lib/debug/.build-id/5b/eb2450b75e84ff317c65f22af8b8112c25df63.debug ..
+--19514--   .. build-id is valid
+--19514-- Scheduler: using generic scheduler lock implementation.
+--19514-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==19514== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-19514-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==19514== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-19514-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==19514== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-19514-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==19514== 
+==19514== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==19514== don't want to do, unless you know exactly what you're doing,
+==19514== or are doing some strange experiment):
+==19514==   /usr/lib64/valgrind/../../bin/vgdb --pid=19514 ...command...
+==19514== 
+==19514== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==19514==   /path/to/gdb ./a.out
+==19514== and then give GDB the following command
+==19514==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=19514
+==19514== --pid is optional if only one valgrind process is running
+==19514== 
+--19514-- REDIR: 0x3bde8176d0 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--19514-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--19514-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--19514-- REDIR: 0x3bde8174e0 (index) redirected to 0x4a07c30 (index)
+--19514-- REDIR: 0x3bde817560 (strcmp) redirected to 0x4a08570 (strcmp)
+--19514-- Reading syms from /lib64/libc-2.12.so
+--19514--   Considering /usr/lib/debug/.build-id/c7/df056b7c109a41096296cd70702f2eada124b0.debug ..
+--19514--   .. build-id is valid
+--19514-- REDIR: 0x3bdec84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--19514-- REDIR: 0x3bdec86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--19514-- REDIR: 0x3bdec82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--19514-- REDIR: 0x3bdec7f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--19514-- REDIR: 0x3bded28350 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+--19514-- REDIR: 0x3bdec81120 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--19514-- REDIR: 0x3bded33620 (__strlen_sse42) redirected to 0x4a07f90 (strlen)
+--19514-- REDIR: 0x3bdec8aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--19514-- REDIR: 0x3bdec84500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--19514-- REDIR: 0x3bdec7b520 (free) redirected to 0x4a063a9 (free)
+--19514-- REDIR: 0x3bdec7a640 (malloc) redirected to 0x4a069ac (malloc)
+--19514-- REDIR: 0x3bdec89670 (memcpy) redirected to 0x4a08b60 (memcpy)
+--19514-- REDIR: 0x3bdec81160 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+==19514== 
+==19514== HEAP SUMMARY:
+==19514==     in use at exit: 0 bytes in 0 blocks
+==19514==   total heap usage: 7 allocs, 7 frees, 271,225 bytes allocated
+==19514== 
+==19514== All heap blocks were freed -- no leaks are possible
+==19514== 
+==19514== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--19514-- 
+--19514-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--19514-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==19514== 
+==19514== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)

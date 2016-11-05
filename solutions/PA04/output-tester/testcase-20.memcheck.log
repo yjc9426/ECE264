@@ -1,0 +1,88 @@
+==10829== Memcheck, a memory error detector
+==10829== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==10829== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==10829== Command: ./a.out images/corrupt-testcases/05-big-width-height.ee264 student-out-19_-
+==10829== Parent PID: 10828
+==10829== 
+--10829-- 
+--10829-- Valgrind options:
+--10829--    --tool=memcheck
+--10829--    --leak-check=full
+--10829--    --verbose
+--10829--    --log-file=memcheck-19.log
+--10829-- Contents of /proc/version:
+--10829--   Linux version 2.6.32-504.23.4.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-9) (GCC) ) #1 SMP Fri May 29 10:16:43 EDT 2015
+--10829-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--10829-- Page sizes: currently 4096, max supported 4096
+--10829-- Valgrind library directory: /usr/lib64/valgrind
+--10829-- Reading syms from /tmp/.7ig99S/a.out
+--10829-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--10829--    object doesn't have a dynamic symbol table
+--10829-- Reading syms from /lib64/ld-2.12.so
+--10829--   Considering /usr/lib/debug/.build-id/5b/eb2450b75e84ff317c65f22af8b8112c25df63.debug ..
+--10829--   .. build-id is valid
+--10829-- Scheduler: using generic scheduler lock implementation.
+--10829-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==10829== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-10829-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==10829== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-10829-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==10829== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-10829-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==10829== 
+==10829== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==10829== don't want to do, unless you know exactly what you're doing,
+==10829== or are doing some strange experiment):
+==10829==   /usr/lib64/valgrind/../../bin/vgdb --pid=10829 ...command...
+==10829== 
+==10829== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==10829==   /path/to/gdb ./a.out
+==10829== and then give GDB the following command
+==10829==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=10829
+==10829== --pid is optional if only one valgrind process is running
+==10829== 
+--10829-- REDIR: 0x3bde8176d0 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--10829-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--10829-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--10829-- REDIR: 0x3bde8174e0 (index) redirected to 0x4a07c30 (index)
+--10829-- REDIR: 0x3bde817560 (strcmp) redirected to 0x4a08570 (strcmp)
+--10829-- Reading syms from /lib64/libc-2.12.so
+--10829--   Considering /usr/lib/debug/.build-id/c7/df056b7c109a41096296cd70702f2eada124b0.debug ..
+--10829--   .. build-id is valid
+--10829-- REDIR: 0x3bdec84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--10829-- REDIR: 0x3bdec86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--10829-- REDIR: 0x3bdec82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--10829-- REDIR: 0x3bdec7f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--10829-- REDIR: 0x3bded28350 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+--10829-- REDIR: 0x3bdec81120 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--10829-- REDIR: 0x3bded33620 (__strlen_sse42) redirected to 0x4a07f90 (strlen)
+--10829-- REDIR: 0x3bdec8aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--10829-- REDIR: 0x3bdec84500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--10829-- REDIR: 0x3bdec7b520 (free) redirected to 0x4a063a9 (free)
+--10829-- REDIR: 0x3bdec7a640 (malloc) redirected to 0x4a069ac (malloc)
+--10829-- REDIR: 0x3bdec89670 (memcpy) redirected to 0x4a08b60 (memcpy)
+--10829-- REDIR: 0x3bdec80b70 (strcpy) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--10829-- REDIR: 0x3bded340c0 (???) redirected to 0x4a07fd0 (strcpy)
+==10829== 
+==10829== HEAP SUMMARY:
+==10829==     in use at exit: 88 bytes in 1 blocks
+==10829==   total heap usage: 4 allocs, 3 frees, 768 bytes allocated
+==10829== 
+==10829== Searching for pointers to 1 not-freed blocks
+==10829== Checked 64,904 bytes
+==10829== 
+==10829== 88 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==10829==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==10829==    by 0x400AD1: Image_load (answer04.c:47)
+==10829==    by 0x401B60: main (<stdin>:61)
+==10829== 
+==10829== LEAK SUMMARY:
+==10829==    definitely lost: 88 bytes in 1 blocks
+==10829==    indirectly lost: 0 bytes in 0 blocks
+==10829==      possibly lost: 0 bytes in 0 blocks
+==10829==    still reachable: 0 bytes in 0 blocks
+==10829==         suppressed: 0 bytes in 0 blocks
+==10829== 
+==10829== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 6 from 6)
+--10829-- 
+--10829-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--10829-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==10829== 
+==10829== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 6 from 6)

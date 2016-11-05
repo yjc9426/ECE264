@@ -1,0 +1,105 @@
+==28441== Memcheck, a memory error detector
+==28441== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==28441== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==28441== Command: ./pa01
+==28441== Parent PID: 2795
+==28441== 
+--28441-- 
+--28441-- Valgrind options:
+--28441--    --tool=memcheck
+--28441--    --leak-check=full
+--28441--    --verbose
+--28441--    --log-file=memcheck.log
+--28441-- Contents of /proc/version:
+--28441--   Linux version 2.6.32-504.23.4.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-9) (GCC) ) #1 SMP Fri May 29 10:16:43 EDT 2015
+--28441-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--28441-- Page sizes: currently 4096, max supported 4096
+--28441-- Valgrind library directory: /usr/lib64/valgrind
+--28441-- Reading syms from /home/shay/a/yuan105/ECE264/solutions/PA01/pa01
+--28441-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--28441--    object doesn't have a dynamic symbol table
+--28441-- Reading syms from /lib64/ld-2.12.so
+--28441--   Considering /usr/lib/debug/.build-id/5b/eb2450b75e84ff317c65f22af8b8112c25df63.debug ..
+--28441--   .. build-id is valid
+--28441-- Scheduler: using generic scheduler lock implementation.
+--28441-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==28441== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-28441-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==28441== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-28441-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==28441== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-28441-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==28441== 
+==28441== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==28441== don't want to do, unless you know exactly what you're doing,
+==28441== or are doing some strange experiment):
+==28441==   /usr/lib64/valgrind/../../bin/vgdb --pid=28441 ...command...
+==28441== 
+==28441== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==28441==   /path/to/gdb ./pa01
+==28441== and then give GDB the following command
+==28441==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=28441
+==28441== --pid is optional if only one valgrind process is running
+==28441== 
+--28441-- REDIR: 0x3bde8176d0 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--28441-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--28441-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--28441-- REDIR: 0x3bde8174e0 (index) redirected to 0x4a07c30 (index)
+--28441-- REDIR: 0x3bde817560 (strcmp) redirected to 0x4a08570 (strcmp)
+--28441-- Reading syms from /lib64/libc-2.12.so
+--28441--   Considering /usr/lib/debug/.build-id/c7/df056b7c109a41096296cd70702f2eada124b0.debug ..
+--28441--   .. build-id is valid
+--28441-- REDIR: 0x3bdec84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--28441-- REDIR: 0x3bdec86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--28441-- REDIR: 0x3bdec82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--28441-- REDIR: 0x3bdec81160 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+--28441-- REDIR: 0x3bdec84500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--28441-- REDIR: 0x3bdec8aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--28441-- REDIR: 0x3bdec7b520 (free) redirected to 0x4a063a9 (free)
+==28441== Conditional jump or move depends on uninitialised value(s)
+==28441==    at 0x3BDEC47E2C: vfprintf (vfprintf.c:1641)
+==28441==    by 0x3BDEC4F189: printf (printf.c:35)
+==28441==    by 0x400AD9: main (pa01.c:151)
+==28441== 
+==28441== Conditional jump or move depends on uninitialised value(s)
+==28441==    at 0x3BDEC47E2C: vfprintf (vfprintf.c:1641)
+==28441==    by 0x3BDEC4F189: printf (printf.c:35)
+==28441==    by 0x400B09: main (pa01.c:153)
+==28441== 
+==28441== Conditional jump or move depends on uninitialised value(s)
+==28441==    at 0x3BDEC47E2C: vfprintf (vfprintf.c:1641)
+==28441==    by 0x3BDEC4F189: printf (printf.c:35)
+==28441==    by 0x400B39: main (pa01.c:155)
+==28441== 
+==28441== 
+==28441== HEAP SUMMARY:
+==28441==     in use at exit: 0 bytes in 0 blocks
+==28441==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==28441== 
+==28441== All heap blocks were freed -- no leaks are possible
+==28441== 
+==28441== Use --track-origins=yes to see where uninitialised values come from
+==28441== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 6 from 6)
+==28441== 
+==28441== 1 errors in context 1 of 3:
+==28441== Conditional jump or move depends on uninitialised value(s)
+==28441==    at 0x3BDEC47E2C: vfprintf (vfprintf.c:1641)
+==28441==    by 0x3BDEC4F189: printf (printf.c:35)
+==28441==    by 0x400B39: main (pa01.c:155)
+==28441== 
+==28441== 
+==28441== 1 errors in context 2 of 3:
+==28441== Conditional jump or move depends on uninitialised value(s)
+==28441==    at 0x3BDEC47E2C: vfprintf (vfprintf.c:1641)
+==28441==    by 0x3BDEC4F189: printf (printf.c:35)
+==28441==    by 0x400B09: main (pa01.c:153)
+==28441== 
+==28441== 
+==28441== 1 errors in context 3 of 3:
+==28441== Conditional jump or move depends on uninitialised value(s)
+==28441==    at 0x3BDEC47E2C: vfprintf (vfprintf.c:1641)
+==28441==    by 0x3BDEC4F189: printf (printf.c:35)
+==28441==    by 0x400AD9: main (pa01.c:151)
+==28441== 
+--28441-- 
+--28441-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--28441-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==28441== 
+==28441== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 6 from 6)

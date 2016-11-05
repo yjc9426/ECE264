@@ -1,0 +1,186 @@
+==20906== Memcheck, a memory error detector
+==20906== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==20906== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==20906== Command: ./a.out images/04-nelsonmandela.ee264 student-out-13_04-nelsonmandela.bmp
+==20906== Parent PID: 20905
+==20906== 
+--20906-- 
+--20906-- Valgrind options:
+--20906--    --tool=memcheck
+--20906--    --leak-check=full
+--20906--    --verbose
+--20906--    --log-file=memcheck-13.log
+--20906-- Contents of /proc/version:
+--20906--   Linux version 2.6.32-504.23.4.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-9) (GCC) ) #1 SMP Fri May 29 10:16:43 EDT 2015
+--20906-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--20906-- Page sizes: currently 4096, max supported 4096
+--20906-- Valgrind library directory: /usr/lib64/valgrind
+--20906-- Reading syms from /tmp/.bvqRMP/a.out
+--20906-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--20906--    object doesn't have a dynamic symbol table
+--20906-- Reading syms from /lib64/ld-2.12.so
+--20906--   Considering /usr/lib/debug/.build-id/5b/eb2450b75e84ff317c65f22af8b8112c25df63.debug ..
+--20906--   .. build-id is valid
+--20906-- Scheduler: using generic scheduler lock implementation.
+--20906-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==20906== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-20906-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==20906== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-20906-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==20906== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-20906-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==20906== 
+==20906== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==20906== don't want to do, unless you know exactly what you're doing,
+==20906== or are doing some strange experiment):
+==20906==   /usr/lib64/valgrind/../../bin/vgdb --pid=20906 ...command...
+==20906== 
+==20906== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==20906==   /path/to/gdb ./a.out
+==20906== and then give GDB the following command
+==20906==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=20906
+==20906== --pid is optional if only one valgrind process is running
+==20906== 
+--20906-- REDIR: 0x3bde8176d0 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--20906-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--20906-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--20906-- REDIR: 0x3bde8174e0 (index) redirected to 0x4a07c30 (index)
+--20906-- REDIR: 0x3bde817560 (strcmp) redirected to 0x4a08570 (strcmp)
+--20906-- Reading syms from /lib64/libc-2.12.so
+--20906--   Considering /usr/lib/debug/.build-id/c7/df056b7c109a41096296cd70702f2eada124b0.debug ..
+--20906--   .. build-id is valid
+--20906-- REDIR: 0x3bdec84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20906-- REDIR: 0x3bdec86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20906-- REDIR: 0x3bdec82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--20906-- REDIR: 0x3bdec7f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20906-- REDIR: 0x3bded28350 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+--20906-- REDIR: 0x3bdec81120 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20906-- REDIR: 0x3bded33620 (__strlen_sse42) redirected to 0x4a07f90 (strlen)
+--20906-- REDIR: 0x3bdec8aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--20906-- REDIR: 0x3bdec84500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--20906-- REDIR: 0x3bdec7b520 (free) redirected to 0x4a063a9 (free)
+--20906-- REDIR: 0x3bdec7a640 (malloc) redirected to 0x4a069ac (malloc)
+--20906-- REDIR: 0x3bdec89670 (memcpy) redirected to 0x4a08b60 (memcpy)
+==20906== Invalid read of size 1
+==20906==    at 0x400AFE: Image_load (answer04.c:57)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906==  Address 0x4c3c2e7 is 39 bytes inside a block of size 40 free'd
+==20906==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==20906==    by 0x400AEA: Image_load (answer04.c:53)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+==20906== Invalid read of size 1
+==20906==    at 0x4A07F92: strlen (mc_replace_strmem.c:403)
+==20906==    by 0x400B43: Image_load (answer04.c:65)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906==  Address 0x4c3c2c0 is 0 bytes inside a block of size 40 free'd
+==20906==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==20906==    by 0x400AEA: Image_load (answer04.c:53)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+==20906== Invalid read of size 1
+==20906==    at 0x4A07FA4: strlen (mc_replace_strmem.c:403)
+==20906==    by 0x400B43: Image_load (answer04.c:65)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906==  Address 0x4c3c2c1 is 1 bytes inside a block of size 40 free'd
+==20906==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==20906==    by 0x400AEA: Image_load (answer04.c:53)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+--20906-- REDIR: 0x3bdec80b70 (strcpy) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20906-- REDIR: 0x3bded340c0 (???) redirected to 0x4a07fd0 (strcpy)
+==20906== Invalid read of size 1
+==20906==    at 0x4A07FD7: strcpy (mc_replace_strmem.c:442)
+==20906==    by 0x400B88: Image_load (answer04.c:68)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906==  Address 0x4c3c2c0 is 0 bytes inside a block of size 40 free'd
+==20906==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==20906==    by 0x400AEA: Image_load (answer04.c:53)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+==20906== Invalid read of size 1
+==20906==    at 0x4A07FF2: strcpy (mc_replace_strmem.c:442)
+==20906==    by 0x400B88: Image_load (answer04.c:68)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906==  Address 0x4c3c2c1 is 1 bytes inside a block of size 40 free'd
+==20906==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==20906==    by 0x400AEA: Image_load (answer04.c:53)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+==20906== 
+==20906== HEAP SUMMARY:
+==20906==     in use at exit: 98,764 bytes in 3 blocks
+==20906==   total heap usage: 5 allocs, 2 frees, 99,372 bytes allocated
+==20906== 
+==20906== Searching for pointers to 3 not-freed blocks
+==20906== Checked 64,632 bytes
+==20906== 
+==20906== 98,764 (24 direct, 98,740 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==20906==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==20906==    by 0x400B33: Image_load (answer04.c:64)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+==20906== LEAK SUMMARY:
+==20906==    definitely lost: 24 bytes in 1 blocks
+==20906==    indirectly lost: 98,740 bytes in 2 blocks
+==20906==      possibly lost: 0 bytes in 0 blocks
+==20906==    still reachable: 0 bytes in 0 blocks
+==20906==         suppressed: 0 bytes in 0 blocks
+==20906== 
+==20906== ERROR SUMMARY: 82 errors from 6 contexts (suppressed: 6 from 6)
+==20906== 
+==20906== 1 errors in context 1 of 6:
+==20906== Invalid read of size 1
+==20906==    at 0x4A07FD7: strcpy (mc_replace_strmem.c:442)
+==20906==    by 0x400B88: Image_load (answer04.c:68)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906==  Address 0x4c3c2c0 is 0 bytes inside a block of size 40 free'd
+==20906==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==20906==    by 0x400AEA: Image_load (answer04.c:53)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+==20906== 
+==20906== 1 errors in context 2 of 6:
+==20906== Invalid read of size 1
+==20906==    at 0x4A07F92: strlen (mc_replace_strmem.c:403)
+==20906==    by 0x400B43: Image_load (answer04.c:65)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906==  Address 0x4c3c2c0 is 0 bytes inside a block of size 40 free'd
+==20906==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==20906==    by 0x400AEA: Image_load (answer04.c:53)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+==20906== 
+==20906== 1 errors in context 3 of 6:
+==20906== Invalid read of size 1
+==20906==    at 0x400AFE: Image_load (answer04.c:57)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906==  Address 0x4c3c2e7 is 39 bytes inside a block of size 40 free'd
+==20906==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==20906==    by 0x400AEA: Image_load (answer04.c:53)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+==20906== 
+==20906== 39 errors in context 4 of 6:
+==20906== Invalid read of size 1
+==20906==    at 0x4A07FF2: strcpy (mc_replace_strmem.c:442)
+==20906==    by 0x400B88: Image_load (answer04.c:68)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906==  Address 0x4c3c2c1 is 1 bytes inside a block of size 40 free'd
+==20906==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==20906==    by 0x400AEA: Image_load (answer04.c:53)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+==20906== 
+==20906== 39 errors in context 5 of 6:
+==20906== Invalid read of size 1
+==20906==    at 0x4A07FA4: strlen (mc_replace_strmem.c:403)
+==20906==    by 0x400B43: Image_load (answer04.c:65)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906==  Address 0x4c3c2c1 is 1 bytes inside a block of size 40 free'd
+==20906==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==20906==    by 0x400AEA: Image_load (answer04.c:53)
+==20906==    by 0x401AEC: main (<stdin>:61)
+==20906== 
+--20906-- 
+--20906-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--20906-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==20906== 
+==20906== ERROR SUMMARY: 82 errors from 6 contexts (suppressed: 6 from 6)

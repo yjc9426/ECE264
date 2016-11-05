@@ -1,0 +1,13 @@
+Starting program: /home/shay/a/yuan105/ECE264/solutions/PA03/echo-lite echo-lite
+
+Program exited normally.
+Starting program: /home/shay/a/yuan105/ECE264/solutions/PA03/cat-lite cat-lite
+
+Program exited normally.
+Starting program: /home/shay/a/yuan105/ECE264/solutions/PA03/grep-lite grep-lite
+
+Program exited normally.A debugging session is active.
+
+	Inferior 1 [process 20100] will be killed.
+
+Quit anyway? (y or n) 

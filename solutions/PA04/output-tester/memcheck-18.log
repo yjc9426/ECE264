@@ -1,0 +1,73 @@
+==20022== Memcheck, a memory error detector
+==20022== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==20022== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==20022== Command: ./a.out images/corrupt-testcases/04-height0.ee264 student-out-18_-
+==20022== Parent PID: 20021
+==20022== 
+--20022-- 
+--20022-- Valgrind options:
+--20022--    --tool=memcheck
+--20022--    --leak-check=full
+--20022--    --verbose
+--20022--    --log-file=memcheck-18.log
+--20022-- Contents of /proc/version:
+--20022--   Linux version 2.6.32-504.23.4.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-9) (GCC) ) #1 SMP Fri May 29 10:16:43 EDT 2015
+--20022-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--20022-- Page sizes: currently 4096, max supported 4096
+--20022-- Valgrind library directory: /usr/lib64/valgrind
+--20022-- Reading syms from /tmp/.iUOEEg/a.out
+--20022-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--20022--    object doesn't have a dynamic symbol table
+--20022-- Reading syms from /lib64/ld-2.12.so
+--20022--   Considering /usr/lib/debug/.build-id/5b/eb2450b75e84ff317c65f22af8b8112c25df63.debug ..
+--20022--   .. build-id is valid
+--20022-- Scheduler: using generic scheduler lock implementation.
+--20022-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==20022== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-20022-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==20022== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-20022-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==20022== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-20022-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==20022== 
+==20022== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==20022== don't want to do, unless you know exactly what you're doing,
+==20022== or are doing some strange experiment):
+==20022==   /usr/lib64/valgrind/../../bin/vgdb --pid=20022 ...command...
+==20022== 
+==20022== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==20022==   /path/to/gdb ./a.out
+==20022== and then give GDB the following command
+==20022==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=20022
+==20022== --pid is optional if only one valgrind process is running
+==20022== 
+--20022-- REDIR: 0x3bde8176d0 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--20022-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--20022-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--20022-- REDIR: 0x3bde8174e0 (index) redirected to 0x4a07c30 (index)
+--20022-- REDIR: 0x3bde817560 (strcmp) redirected to 0x4a08570 (strcmp)
+--20022-- Reading syms from /lib64/libc-2.12.so
+--20022--   Considering /usr/lib/debug/.build-id/c7/df056b7c109a41096296cd70702f2eada124b0.debug ..
+--20022--   .. build-id is valid
+--20022-- REDIR: 0x3bdec84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20022-- REDIR: 0x3bdec86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20022-- REDIR: 0x3bdec82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--20022-- REDIR: 0x3bdec7f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20022-- REDIR: 0x3bded28350 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+--20022-- REDIR: 0x3bdec81120 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20022-- REDIR: 0x3bded33620 (__strlen_sse42) redirected to 0x4a07f90 (strlen)
+--20022-- REDIR: 0x3bdec8aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--20022-- REDIR: 0x3bdec84500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--20022-- REDIR: 0x3bdec7b520 (free) redirected to 0x4a063a9 (free)
+--20022-- REDIR: 0x3bdec7a640 (malloc) redirected to 0x4a069ac (malloc)
+--20022-- REDIR: 0x3bdec89670 (memcpy) redirected to 0x4a08b60 (memcpy)
+==20022== 
+==20022== HEAP SUMMARY:
+==20022==     in use at exit: 0 bytes in 0 blocks
+==20022==   total heap usage: 1 allocs, 1 frees, 568 bytes allocated
+==20022== 
+==20022== All heap blocks were freed -- no leaks are possible
+==20022== 
+==20022== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--20022-- 
+--20022-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--20022-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==20022== 
+==20022== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)

@@ -1,0 +1,7 @@
+Currently logging to "gdb.txt".
+Logs will be appended to the log file.
+Output will be logged and displayed.
+Working directory /home/shay/a/yuan105/eceTesting.
+Starting program: /home/shay/a/yuan105/eceTesting/a.out 
+
+Program exited normally.

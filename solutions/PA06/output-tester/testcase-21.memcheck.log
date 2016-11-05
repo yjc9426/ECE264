@@ -1,0 +1,91 @@
+==14856== Memcheck, a memory error detector
+==14856== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==14856== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==14856== Command: ./a.out 20
+==14856== Parent PID: 14855
+==14856== 
+--14856-- 
+--14856-- Valgrind options:
+--14856--    --tool=memcheck
+--14856--    --leak-check=full
+--14856--    --verbose
+--14856--    --log-file=memcheck.log
+--14856-- Contents of /proc/version:
+--14856--   Linux version 2.6.32-504.23.4.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-9) (GCC) ) #1 SMP Fri May 29 10:16:43 EDT 2015
+--14856-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--14856-- Page sizes: currently 4096, max supported 4096
+--14856-- Valgrind library directory: /usr/lib64/valgrind
+--14856-- Reading syms from /tmp/.qHoPTf/a.out
+--14856-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--14856--    object doesn't have a dynamic symbol table
+--14856-- Reading syms from /lib64/ld-2.12.so
+--14856--   Considering /usr/lib/debug/.build-id/5b/eb2450b75e84ff317c65f22af8b8112c25df63.debug ..
+--14856--   .. build-id is valid
+--14856-- Scheduler: using generic scheduler lock implementation.
+--14856-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==14856== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-14856-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==14856== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-14856-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==14856== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-14856-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==14856== 
+==14856== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==14856== don't want to do, unless you know exactly what you're doing,
+==14856== or are doing some strange experiment):
+==14856==   /usr/lib64/valgrind/../../bin/vgdb --pid=14856 ...command...
+==14856== 
+==14856== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==14856==   /path/to/gdb ./a.out
+==14856== and then give GDB the following command
+==14856==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=14856
+==14856== --pid is optional if only one valgrind process is running
+==14856== 
+--14856-- REDIR: 0x3bde8176d0 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--14856-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--14856-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--14856-- REDIR: 0x3bde8174e0 (index) redirected to 0x4a07c30 (index)
+--14856-- REDIR: 0x3bde817560 (strcmp) redirected to 0x4a08570 (strcmp)
+--14856-- Reading syms from /lib64/libc-2.12.so
+--14856--   Considering /usr/lib/debug/.build-id/c7/df056b7c109a41096296cd70702f2eada124b0.debug ..
+--14856--   .. build-id is valid
+--14856-- REDIR: 0x3bdec84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--14856-- REDIR: 0x3bdec86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--14856-- REDIR: 0x3bdec82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--14856-- REDIR: 0x3bdec7a640 (malloc) redirected to 0x4a069ac (malloc)
+--14856-- REDIR: 0x3bdec81160 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+--14856-- REDIR: 0x3bdec89670 (memcpy) redirected to 0x4a08b60 (memcpy)
+--14856-- REDIR: 0x3bdec7f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--14856-- REDIR: 0x3bded28350 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+--14856-- REDIR: 0x3bdec84500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--14856-- REDIR: 0x3bdec8aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--14856-- REDIR: 0x3bdec7b520 (free) redirected to 0x4a063a9 (free)
+==14856== 
+==14856== HEAP SUMMARY:
+==14856==     in use at exit: 76 bytes in 8 blocks
+==14856==   total heap usage: 37 allocs, 29 frees, 406 bytes allocated
+==14856== 
+==14856== Searching for pointers to 8 not-freed blocks
+==14856== Checked 64,552 bytes
+==14856== 
+==14856== 76 (16 direct, 60 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 8
+==14856==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==14856==    by 0x400C35: List_createNode_sol (<stdin>:19)
+==14856==    by 0x401072: List_create (test_support_functions.c:48)
+==14856==    by 0x40108F: List_create (test_support_functions.c:49)
+==14856==    by 0x40108F: List_create (test_support_functions.c:49)
+==14856==    by 0x40108F: List_create (test_support_functions.c:49)
+==14856==    by 0x401289: make_list (test_support_functions.c:78)
+==14856==    by 0x401C07: tests_List_merge (test_List_merge.c:115)
+==14856==    by 0x4022A1: main (<stdin>:159)
+==14856== 
+==14856== LEAK SUMMARY:
+==14856==    definitely lost: 16 bytes in 1 blocks
+==14856==    indirectly lost: 60 bytes in 7 blocks
+==14856==      possibly lost: 0 bytes in 0 blocks
+==14856==    still reachable: 0 bytes in 0 blocks
+==14856==         suppressed: 0 bytes in 0 blocks
+==14856== 
+==14856== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 6 from 6)
+--14856-- 
+--14856-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--14856-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==14856== 
+==14856== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 6 from 6)

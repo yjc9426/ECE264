@@ -1,0 +1,193 @@
+==21250== Memcheck, a memory error detector
+==21250== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==21250== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==21250== Command: ./a.out images/corrupt-testcases/08-height-wrong.ee264 student-out-22_-
+==21250== Parent PID: 21249
+==21250== 
+--21250-- 
+--21250-- Valgrind options:
+--21250--    --tool=memcheck
+--21250--    --leak-check=full
+--21250--    --verbose
+--21250--    --log-file=memcheck-22.log
+--21250-- Contents of /proc/version:
+--21250--   Linux version 2.6.32-504.23.4.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-9) (GCC) ) #1 SMP Fri May 29 10:16:43 EDT 2015
+--21250-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--21250-- Page sizes: currently 4096, max supported 4096
+--21250-- Valgrind library directory: /usr/lib64/valgrind
+--21250-- Reading syms from /tmp/.bvqRMP/a.out
+--21250-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--21250--    object doesn't have a dynamic symbol table
+--21250-- Reading syms from /lib64/ld-2.12.so
+--21250--   Considering /usr/lib/debug/.build-id/5b/eb2450b75e84ff317c65f22af8b8112c25df63.debug ..
+--21250--   .. build-id is valid
+--21250-- Scheduler: using generic scheduler lock implementation.
+--21250-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==21250== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-21250-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==21250== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-21250-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==21250== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-21250-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==21250== 
+==21250== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==21250== don't want to do, unless you know exactly what you're doing,
+==21250== or are doing some strange experiment):
+==21250==   /usr/lib64/valgrind/../../bin/vgdb --pid=21250 ...command...
+==21250== 
+==21250== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==21250==   /path/to/gdb ./a.out
+==21250== and then give GDB the following command
+==21250==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=21250
+==21250== --pid is optional if only one valgrind process is running
+==21250== 
+--21250-- REDIR: 0x3bde8176d0 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--21250-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--21250-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--21250-- REDIR: 0x3bde8174e0 (index) redirected to 0x4a07c30 (index)
+--21250-- REDIR: 0x3bde817560 (strcmp) redirected to 0x4a08570 (strcmp)
+--21250-- Reading syms from /lib64/libc-2.12.so
+--21250--   Considering /usr/lib/debug/.build-id/c7/df056b7c109a41096296cd70702f2eada124b0.debug ..
+--21250--   .. build-id is valid
+--21250-- REDIR: 0x3bdec84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--21250-- REDIR: 0x3bdec86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--21250-- REDIR: 0x3bdec82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--21250-- REDIR: 0x3bdec7f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--21250-- REDIR: 0x3bded28350 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+--21250-- REDIR: 0x3bdec81120 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--21250-- REDIR: 0x3bded33620 (__strlen_sse42) redirected to 0x4a07f90 (strlen)
+--21250-- REDIR: 0x3bdec8aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--21250-- REDIR: 0x3bdec84500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--21250-- REDIR: 0x3bdec7b520 (free) redirected to 0x4a063a9 (free)
+--21250-- REDIR: 0x3bdec7a640 (malloc) redirected to 0x4a069ac (malloc)
+--21250-- REDIR: 0x3bdec89670 (memcpy) redirected to 0x4a08b60 (memcpy)
+==21250== Invalid read of size 1
+==21250==    at 0x400AFE: Image_load (answer04.c:57)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c317 is 87 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+==21250== Invalid read of size 1
+==21250==    at 0x4A07F92: strlen (mc_replace_strmem.c:403)
+==21250==    by 0x400B43: Image_load (answer04.c:65)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c2c0 is 0 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+==21250== Invalid read of size 1
+==21250==    at 0x4A07FA4: strlen (mc_replace_strmem.c:403)
+==21250==    by 0x400B43: Image_load (answer04.c:65)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c2c1 is 1 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+--21250-- REDIR: 0x3bdec80b70 (strcpy) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--21250-- REDIR: 0x3bded340c0 (???) redirected to 0x4a07fd0 (strcpy)
+==21250== Invalid read of size 1
+==21250==    at 0x4A07FD7: strcpy (mc_replace_strmem.c:442)
+==21250==    by 0x400B88: Image_load (answer04.c:68)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c2c0 is 0 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+==21250== Invalid read of size 1
+==21250==    at 0x4A07FF2: strcpy (mc_replace_strmem.c:442)
+==21250==    by 0x400B88: Image_load (answer04.c:68)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c2c1 is 1 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+==21250== Invalid free() / delete / delete[] / realloc()
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400C3B: Image_load (answer04.c:91)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c2c0 is 0 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+==21250== 
+==21250== HEAP SUMMARY:
+==21250==     in use at exit: 0 bytes in 0 blocks
+==21250==   total heap usage: 5 allocs, 6 frees, 858 bytes allocated
+==21250== 
+==21250== All heap blocks were freed -- no leaks are possible
+==21250== 
+==21250== ERROR SUMMARY: 178 errors from 6 contexts (suppressed: 6 from 6)
+==21250== 
+==21250== 1 errors in context 1 of 6:
+==21250== Invalid free() / delete / delete[] / realloc()
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400C3B: Image_load (answer04.c:91)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c2c0 is 0 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+==21250== 
+==21250== 1 errors in context 2 of 6:
+==21250== Invalid read of size 1
+==21250==    at 0x4A07FD7: strcpy (mc_replace_strmem.c:442)
+==21250==    by 0x400B88: Image_load (answer04.c:68)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c2c0 is 0 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+==21250== 
+==21250== 1 errors in context 3 of 6:
+==21250== Invalid read of size 1
+==21250==    at 0x4A07F92: strlen (mc_replace_strmem.c:403)
+==21250==    by 0x400B43: Image_load (answer04.c:65)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c2c0 is 0 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+==21250== 
+==21250== 1 errors in context 4 of 6:
+==21250== Invalid read of size 1
+==21250==    at 0x400AFE: Image_load (answer04.c:57)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c317 is 87 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+==21250== 
+==21250== 87 errors in context 5 of 6:
+==21250== Invalid read of size 1
+==21250==    at 0x4A07FF2: strcpy (mc_replace_strmem.c:442)
+==21250==    by 0x400B88: Image_load (answer04.c:68)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c2c1 is 1 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+==21250== 
+==21250== 87 errors in context 6 of 6:
+==21250== Invalid read of size 1
+==21250==    at 0x4A07FA4: strlen (mc_replace_strmem.c:403)
+==21250==    by 0x400B43: Image_load (answer04.c:65)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250==  Address 0x4c3c2c1 is 1 bytes inside a block of size 88 free'd
+==21250==    at 0x4A06430: free (vg_replace_malloc.c:446)
+==21250==    by 0x400AEA: Image_load (answer04.c:53)
+==21250==    by 0x401AEC: main (<stdin>:61)
+==21250== 
+--21250-- 
+--21250-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--21250-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==21250== 
+==21250== ERROR SUMMARY: 178 errors from 6 contexts (suppressed: 6 from 6)

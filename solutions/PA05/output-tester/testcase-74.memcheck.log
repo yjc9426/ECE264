@@ -1,0 +1,152 @@
+==1486== Memcheck, a memory error detector
+==1486== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==1486== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==1486== Command: ./a.out 73
+==1486== Parent PID: 1485
+==1486== 
+--1486-- 
+--1486-- Valgrind options:
+--1486--    --tool=memcheck
+--1486--    --leak-check=full
+--1486--    --verbose
+--1486--    --log-file=memcheck.log
+--1486-- Contents of /proc/version:
+--1486--   Linux version 2.6.32-504.23.4.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-9) (GCC) ) #1 SMP Fri May 29 10:16:43 EDT 2015
+--1486-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--1486-- Page sizes: currently 4096, max supported 4096
+--1486-- Valgrind library directory: /usr/lib64/valgrind
+--1486-- Reading syms from /tmp/.WxlAlP/a.out
+--1486-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--1486--    object doesn't have a dynamic symbol table
+--1486-- Reading syms from /lib64/ld-2.12.so
+--1486--   Considering /usr/lib/debug/.build-id/5b/eb2450b75e84ff317c65f22af8b8112c25df63.debug ..
+--1486--   .. build-id is valid
+--1486-- Scheduler: using generic scheduler lock implementation.
+--1486-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==1486== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-1486-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==1486== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-1486-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==1486== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-1486-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==1486== 
+==1486== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==1486== don't want to do, unless you know exactly what you're doing,
+==1486== or are doing some strange experiment):
+==1486==   /usr/lib64/valgrind/../../bin/vgdb --pid=1486 ...command...
+==1486== 
+==1486== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==1486==   /path/to/gdb ./a.out
+==1486== and then give GDB the following command
+==1486==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=1486
+==1486== --pid is optional if only one valgrind process is running
+==1486== 
+--1486-- REDIR: 0x3bde8176d0 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--1486-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--1486-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--1486-- REDIR: 0x3bde8174e0 (index) redirected to 0x4a07c30 (index)
+--1486-- REDIR: 0x3bde817560 (strcmp) redirected to 0x4a08570 (strcmp)
+--1486-- Reading syms from /lib64/libc-2.12.so
+--1486--   Considering /usr/lib/debug/.build-id/c7/df056b7c109a41096296cd70702f2eada124b0.debug ..
+--1486--   .. build-id is valid
+--1486-- REDIR: 0x3bdec84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--1486-- REDIR: 0x3bdec86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--1486-- REDIR: 0x3bdec82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--1486-- REDIR: 0x3bdec8aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--1486-- REDIR: 0x3bdec84500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--1486-- REDIR: 0x3bdec7b520 (free) redirected to 0x4a063a9 (free)
+--1486-- REDIR: 0x3bdec7a640 (malloc) redirected to 0x4a069ac (malloc)
+--1486-- REDIR: 0x3bdec81160 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+==1486== 
+==1486== HEAP SUMMARY:
+==1486==     in use at exit: 384 bytes in 16 blocks
+==1486==   total heap usage: 53 allocs, 37 frees, 1,304 bytes allocated
+==1486== 
+==1486== Searching for pointers to 16 not-freed blocks
+==1486== Checked 64,552 bytes
+==1486== 
+==1486== 24 bytes in 1 blocks are definitely lost in loss record 10 of 16
+==1486==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==1486==    by 0x40070B: SparseNode_create (answer06.c:13)
+==1486==    by 0x400D53: MergeInsert (answer06.c:233)
+==1486==    by 0x400CD3: MergeCopy (answer06.c:220)
+==1486==    by 0x400C1C: SparseArray_merge (answer06.c:200)
+==1486==    by 0x402E87: tests_SparseArray_merge (test_SparseArray_merge.c:75)
+==1486==    by 0x403088: main (<stdin>:241)
+==1486== 
+==1486== 24 bytes in 1 blocks are definitely lost in loss record 11 of 16
+==1486==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==1486==    by 0x40070B: SparseNode_create (answer06.c:13)
+==1486==    by 0x400D53: MergeInsert (answer06.c:233)
+==1486==    by 0x400CD3: MergeCopy (answer06.c:220)
+==1486==    by 0x400D09: MergeCopy (answer06.c:222)
+==1486==    by 0x400C1C: SparseArray_merge (answer06.c:200)
+==1486==    by 0x402E87: tests_SparseArray_merge (test_SparseArray_merge.c:75)
+==1486==    by 0x403088: main (<stdin>:241)
+==1486== 
+==1486== 24 bytes in 1 blocks are definitely lost in loss record 12 of 16
+==1486==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==1486==    by 0x40070B: SparseNode_create (answer06.c:13)
+==1486==    by 0x400D53: MergeInsert (answer06.c:233)
+==1486==    by 0x400CD3: MergeCopy (answer06.c:220)
+==1486==    by 0x400CEE: MergeCopy (answer06.c:221)
+==1486==    by 0x400D09: MergeCopy (answer06.c:222)
+==1486==    by 0x400C1C: SparseArray_merge (answer06.c:200)
+==1486==    by 0x402E87: tests_SparseArray_merge (test_SparseArray_merge.c:75)
+==1486==    by 0x403088: main (<stdin>:241)
+==1486== 
+==1486== 24 bytes in 1 blocks are definitely lost in loss record 13 of 16
+==1486==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==1486==    by 0x40070B: SparseNode_create (answer06.c:13)
+==1486==    by 0x400D53: MergeInsert (answer06.c:233)
+==1486==    by 0x400CD3: MergeCopy (answer06.c:220)
+==1486==    by 0x400CEE: MergeCopy (answer06.c:221)
+==1486==    by 0x400CEE: MergeCopy (answer06.c:221)
+==1486==    by 0x400D09: MergeCopy (answer06.c:222)
+==1486==    by 0x400C1C: SparseArray_merge (answer06.c:200)
+==1486==    by 0x402E87: tests_SparseArray_merge (test_SparseArray_merge.c:75)
+==1486==    by 0x403088: main (<stdin>:241)
+==1486== 
+==1486== 24 bytes in 1 blocks are definitely lost in loss record 14 of 16
+==1486==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==1486==    by 0x40070B: SparseNode_create (answer06.c:13)
+==1486==    by 0x400D53: MergeInsert (answer06.c:233)
+==1486==    by 0x400CD3: MergeCopy (answer06.c:220)
+==1486==    by 0x400D09: MergeCopy (answer06.c:222)
+==1486==    by 0x400CEE: MergeCopy (answer06.c:221)
+==1486==    by 0x400CEE: MergeCopy (answer06.c:221)
+==1486==    by 0x400D09: MergeCopy (answer06.c:222)
+==1486==    by 0x400C1C: SparseArray_merge (answer06.c:200)
+==1486==    by 0x402E87: tests_SparseArray_merge (test_SparseArray_merge.c:75)
+==1486==    by 0x403088: main (<stdin>:241)
+==1486== 
+==1486== 24 bytes in 1 blocks are definitely lost in loss record 15 of 16
+==1486==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==1486==    by 0x40070B: SparseNode_create (answer06.c:13)
+==1486==    by 0x400D53: MergeInsert (answer06.c:233)
+==1486==    by 0x400CD3: MergeCopy (answer06.c:220)
+==1486==    by 0x400D09: MergeCopy (answer06.c:222)
+==1486==    by 0x400D09: MergeCopy (answer06.c:222)
+==1486==    by 0x400C1C: SparseArray_merge (answer06.c:200)
+==1486==    by 0x402E87: tests_SparseArray_merge (test_SparseArray_merge.c:75)
+==1486==    by 0x403088: main (<stdin>:241)
+==1486== 
+==1486== 240 (24 direct, 216 indirect) bytes in 1 blocks are definitely lost in loss record 16 of 16
+==1486==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==1486==    by 0x40070B: SparseNode_create (answer06.c:13)
+==1486==    by 0x400777: SparseArray_insert (answer06.c:31)
+==1486==    by 0x400B8F: SparseArray_copy (answer06.c:179)
+==1486==    by 0x400C05: SparseArray_merge (answer06.c:199)
+==1486==    by 0x402E87: tests_SparseArray_merge (test_SparseArray_merge.c:75)
+==1486==    by 0x403088: main (<stdin>:241)
+==1486== 
+==1486== LEAK SUMMARY:
+==1486==    definitely lost: 168 bytes in 7 blocks
+==1486==    indirectly lost: 216 bytes in 9 blocks
+==1486==      possibly lost: 0 bytes in 0 blocks
+==1486==    still reachable: 0 bytes in 0 blocks
+==1486==         suppressed: 0 bytes in 0 blocks
+==1486== 
+==1486== ERROR SUMMARY: 7 errors from 7 contexts (suppressed: 6 from 6)
+--1486-- 
+--1486-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--1486-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==1486== 
+==1486== ERROR SUMMARY: 7 errors from 7 contexts (suppressed: 6 from 6)

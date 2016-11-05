@@ -1,0 +1,122 @@
+==15669== Memcheck, a memory error detector
+==15669== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==15669== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==15669== Command: ./a.out 35
+==15669== Parent PID: 15668
+==15669== 
+--15669-- 
+--15669-- Valgrind options:
+--15669--    --tool=memcheck
+--15669--    --leak-check=full
+--15669--    --verbose
+--15669--    --log-file=memcheck.log
+--15669-- Contents of /proc/version:
+--15669--   Linux version 2.6.32-504.23.4.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-9) (GCC) ) #1 SMP Fri May 29 10:16:43 EDT 2015
+--15669-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--15669-- Page sizes: currently 4096, max supported 4096
+--15669-- Valgrind library directory: /usr/lib64/valgrind
+--15669-- Reading syms from /tmp/.qHoPTf/a.out
+--15669-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--15669--    object doesn't have a dynamic symbol table
+--15669-- Reading syms from /lib64/ld-2.12.so
+--15669--   Considering /usr/lib/debug/.build-id/5b/eb2450b75e84ff317c65f22af8b8112c25df63.debug ..
+--15669--   .. build-id is valid
+--15669-- Scheduler: using generic scheduler lock implementation.
+--15669-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==15669== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-15669-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==15669== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-15669-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==15669== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-15669-by-yuan105-on-ecegrid-thin1.ecn.purdue.edu
+==15669== 
+==15669== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==15669== don't want to do, unless you know exactly what you're doing,
+==15669== or are doing some strange experiment):
+==15669==   /usr/lib64/valgrind/../../bin/vgdb --pid=15669 ...command...
+==15669== 
+==15669== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==15669==   /path/to/gdb ./a.out
+==15669== and then give GDB the following command
+==15669==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=15669
+==15669== --pid is optional if only one valgrind process is running
+==15669== 
+--15669-- REDIR: 0x3bde8176d0 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--15669-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--15669-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--15669-- REDIR: 0x3bde8174e0 (index) redirected to 0x4a07c30 (index)
+--15669-- REDIR: 0x3bde817560 (strcmp) redirected to 0x4a08570 (strcmp)
+--15669-- Reading syms from /lib64/libc-2.12.so
+--15669--   Considering /usr/lib/debug/.build-id/c7/df056b7c109a41096296cd70702f2eada124b0.debug ..
+--15669--   .. build-id is valid
+--15669-- REDIR: 0x3bdec84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--15669-- REDIR: 0x3bdec86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--15669-- REDIR: 0x3bdec82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--15669-- REDIR: 0x3bdec7a640 (malloc) redirected to 0x4a069ac (malloc)
+--15669-- REDIR: 0x3bdec81160 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+--15669-- REDIR: 0x3bdec89670 (memcpy) redirected to 0x4a08b60 (memcpy)
+--15669-- REDIR: 0x3bdec84500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--15669-- REDIR: 0x3bdec8aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--15669-- REDIR: 0x3bdec7b520 (free) redirected to 0x4a063a9 (free)
+--15669-- REDIR: 0x3bdec7f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--15669-- REDIR: 0x3bded28350 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+==15669== 
+==15669== HEAP SUMMARY:
+==15669==     in use at exit: 76 bytes in 8 blocks
+==15669==   total heap usage: 21 allocs, 13 frees, 230 bytes allocated
+==15669== 
+==15669== Searching for pointers to 8 not-freed blocks
+==15669== Checked 64,552 bytes
+==15669== 
+==15669== 19 (16 direct, 3 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 8
+==15669==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==15669==    by 0x400C35: List_createNode_sol (<stdin>:19)
+==15669==    by 0x401072: List_create (test_support_functions.c:48)
+==15669==    by 0x40108F: List_create (test_support_functions.c:49)
+==15669==    by 0x401289: make_list (test_support_functions.c:78)
+==15669==    by 0x4020BD: tests_List_sort (test_List_sort.c:111)
+==15669==    by 0x4022A1: main (<stdin>:159)
+==15669== 
+==15669== 19 (16 direct, 3 indirect) bytes in 1 blocks are definitely lost in loss record 6 of 8
+==15669==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==15669==    by 0x400C35: List_createNode_sol (<stdin>:19)
+==15669==    by 0x401072: List_create (test_support_functions.c:48)
+==15669==    by 0x40108F: List_create (test_support_functions.c:49)
+==15669==    by 0x40108F: List_create (test_support_functions.c:49)
+==15669==    by 0x401289: make_list (test_support_functions.c:78)
+==15669==    by 0x4020BD: tests_List_sort (test_List_sort.c:111)
+==15669==    by 0x4022A1: main (<stdin>:159)
+==15669== 
+==15669== 19 (16 direct, 3 indirect) bytes in 1 blocks are definitely lost in loss record 7 of 8
+==15669==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==15669==    by 0x400C35: List_createNode_sol (<stdin>:19)
+==15669==    by 0x401072: List_create (test_support_functions.c:48)
+==15669==    by 0x40108F: List_create (test_support_functions.c:49)
+==15669==    by 0x40108F: List_create (test_support_functions.c:49)
+==15669==    by 0x40108F: List_create (test_support_functions.c:49)
+==15669==    by 0x401289: make_list (test_support_functions.c:78)
+==15669==    by 0x4020BD: tests_List_sort (test_List_sort.c:111)
+==15669==    by 0x4022A1: main (<stdin>:159)
+==15669== 
+==15669== 19 (16 direct, 3 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 8
+==15669==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==15669==    by 0x400C35: List_createNode_sol (<stdin>:19)
+==15669==    by 0x401072: List_create (test_support_functions.c:48)
+==15669==    by 0x40108F: List_create (test_support_functions.c:49)
+==15669==    by 0x40108F: List_create (test_support_functions.c:49)
+==15669==    by 0x40108F: List_create (test_support_functions.c:49)
+==15669==    by 0x40108F: List_create (test_support_functions.c:49)
+==15669==    by 0x401289: make_list (test_support_functions.c:78)
+==15669==    by 0x4020BD: tests_List_sort (test_List_sort.c:111)
+==15669==    by 0x4022A1: main (<stdin>:159)
+==15669== 
+==15669== LEAK SUMMARY:
+==15669==    definitely lost: 64 bytes in 4 blocks
+==15669==    indirectly lost: 12 bytes in 4 blocks
+==15669==      possibly lost: 0 bytes in 0 blocks
+==15669==    still reachable: 0 bytes in 0 blocks
+==15669==         suppressed: 0 bytes in 0 blocks
+==15669== 
+==15669== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 6 from 6)
+--15669-- 
+--15669-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--15669-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==15669== 
+==15669== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 6 from 6)

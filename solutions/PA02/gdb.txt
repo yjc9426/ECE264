@@ -1,0 +1,7 @@
+Starting program: /home/shay/a/yuan105/eceTesting/a.out 
+
+Program exited normally.
+Ambiguous command "a.out": .
+Starting program: /home/shay/a/yuan105/eceTesting/a.out a.out
+
+Program exited normally.
